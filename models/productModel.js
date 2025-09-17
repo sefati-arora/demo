@@ -1,0 +1,36 @@
+module.exports=(Sequelize,sequelize,DataTypes) =>
+{
+   return sequelize.define(
+      "productTable",
+      {
+        ...require('./core')(Sequelize,DataTypes),
+        productImage:{
+            type:DataTypes.STRING(255),
+            allowNull:true,
+        },
+        productName:{
+            type:DataTypes.STRING(),
+            allowNull:false,
+        },
+        category:{
+            type:DataTypes.STRING(),
+            allowNull:false,
+        },
+        subCategory:{
+            type:DataTypes.STRING(),
+            allowNull:false,
+        },
+        price:{
+            type:DataTypes.STRING(),
+            allowNull:false,
+        },
+        Description:{
+            type:DataTypes.STRING(),
+            allowNull:false,
+        },
+      },
+      {
+         tableName:"productTable"
+      }
+   );
+};

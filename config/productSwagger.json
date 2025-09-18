@@ -1,0 +1,86 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "project name",
+        "description": "project description",
+        "version": "1.0"
+    },
+    "produces": ["application/json"],
+    "basePath": "/",
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "authorization",
+            "in": "header"
+        }
+    },
+    "paths": {
+        "/api/productdetail": {
+            "post": {
+                "x-swagger-router-controller": "middleware-name1",
+                "operationId": "api-productdetail-post",
+                "tags": ["Application User"],
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "productName",
+                        "in": "formData",
+                        "description": "Enter the productName",
+                        "required": true,
+                        "type": "string",
+                        "value": "test"
+                    },
+                    {
+                        "name": "category",
+                        "in": "formData",
+                        "description": "Enter category of product ",
+                        "required": true,
+                        "type": "string",
+                        "value": "test"
+                    },
+                    {
+                        "name": "subCategory",
+                        "in": "formData",
+                        "description": "Enter subCategory of product",
+                        "required": true,
+                        "type": "string",
+                        "value": "test"
+                    },
+                    {
+                        "name": "productImage",
+                        "in": "formData",
+                        "description": "product picture to upload",
+                        "required": false,
+                        "type": "file",
+                        "format": "binary",
+                        "maxLength": 5242880,
+                        "allowedMimeTypes": [
+                          "image/jpeg",
+                          "image/png"
+                        ]
+                    },
+                    {
+                       
+                      "name": "price",
+                       "in": "formData",
+                     "description": "Price of the product",
+                     "required": true,
+                        "type": "string",
+                     "x-example": "999"
+                     },
+                    {
+                        "name": "Description",
+                        "in": "formData",
+                        "description": "Description related product",
+                        "required": true,
+                        "type": "string",
+                        "value": ""
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    },
+    "definitions": {
+    }
+}

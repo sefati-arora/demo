@@ -8,7 +8,7 @@ const router=express.Router();
 
 router.post('/signUp',apiController.signUp);
 router.post('/login',apiController.login);
-router.post('/imageUpload',imageController.imageUpload);
+router.post('/profilePicture',imageController.profilePicture);
 router.get('/sidIdGenerateTwilio',apiController.sidIdGenerateTwilio);
 router.post('/optsend',apiController.optsend);
 router.post('/otpVerify',apiController.otpVerify);

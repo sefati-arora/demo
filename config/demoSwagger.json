@@ -1,0 +1,92 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "project name",
+        "description": "project description",
+        "version": "1.0"
+    },
+    "produces": ["application/json"],
+    "basePath": "/",
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "authorization",
+            "in": "header"
+        }
+    },
+   "paths":{
+      "/api/emailotp": {
+            "post": {
+                "x-swagger-router-controller": "middleware-name1",
+                "operationId": "api-emailotp-post",
+                "tags": ["Application User"],
+                "description": "",
+                "parameters": [
+                     {
+                        "name": "firstName",
+                        "in": "formData",
+                        "description": "Enter the firstName",
+                        "required": true,
+                        "type": "string",
+                        "value": "test"
+                    },
+                    {
+                        "name": "lastName",
+                        "in": "formData",
+                        "description": "Enter lastName ",
+                        "required": true,
+                        "type": "string",
+                        "value": "test"
+                    },
+                     {
+                         
+                        "name":"email",
+                        "in":"formData",
+                        "description":"email",
+                        "required":true,
+                        "type":"string",
+                        "value":"..."
+                     
+                     }
+                      ],
+                    
+                "responses": {}
+            }
+        },
+          "/api/emailotpVerify": {
+            "post": {
+                "x-swagger-router-controller": "middleware-name1",
+                "operationId": "api-emailotpVerify-post",
+                "tags": ["Application User"],
+                "description": "",
+                "parameters": [
+                     {
+                         
+                        "name":"email",
+                        "in":"formData",
+                        "description":"email",
+                        "required":true,
+                        "type":"string",
+                        "value":"..."
+                     
+                     },
+                     
+                        {
+                        "name":"otp",
+                        "in":"formData",
+                        "Description":"otp verified",
+                        "required":true,
+                        "type":"string",
+                        "value":".."
+                     }
+                      
+                     
+                      ],
+                    
+                "responses": {}
+            }
+        },
+ "definitions": {
+    }
+    }
+}

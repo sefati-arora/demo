@@ -9,10 +9,11 @@ module.exports = {
   authentication: async (req, res, next) => {
     let token = req.headers["authorization"];
     token = token.startsWith("Bearer ") ? token.split(" ")[1] : token;
+
     if (token) {
       jwt.verify(token, secretKey, async (err, authData) => {
         if (err) {
-          return res.status(401).json({messgae:"invalid token"})
+          return res.status(401).json({message:"invalid token"})
         }
         let userDetail = await Models.userModel.findOne({
           where: { id: authData.id },
@@ -23,7 +24,7 @@ module.exports = {
         next();
       });
     } else {
-      return res.status(404).json({messgae:"Forgot password token verification error:"})
+      return res.status(404).json({message:"Forgot password token verification error:"})
     }
   },
 }

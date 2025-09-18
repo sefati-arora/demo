@@ -26,6 +26,8 @@ bcryptData: async (newPassword, salt) => {
   },
   fileUpload: async (file, folder = "images") => {
     try {
+
+      console.log("uvguvgyvgyvgyuv",file)
       if (!file || !file.name) {
         console.error("File is missing or invalid:", file);
         return null;
@@ -115,6 +117,12 @@ otpSendLinkHTML : async (req, email, otp, subject = "Verify your account") => {
  {  return Math.floor(1000 + Math.random() * 9000)
       .toString()
       .slice(0, length);
+  },
+
+    getHost: async (req, res) => {
+    const host =
+      req.headers.host || `${req.hostname}:${req.connection.localPort}`;
+    return host;
   },
  }
  

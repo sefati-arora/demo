@@ -23,7 +23,7 @@ module.exports = {
         email: Joi.string().required(),
         password: Joi.string().required(),
         phoneNumber: Joi.string().required(),
-        countryCode:Joi.string().required()
+        countryCode:Joi.string().required(),
       });
       const payload = await helper.validationJoi(req.body, schema);
       const { password } = payload;
@@ -40,7 +40,7 @@ module.exports = {
         password: hashpassword,
         phoneNumber: payload.phoneNumber,
         // profileImage: filepath,
-        countryCode:payload.countryCode
+        countryCode:payload.countryCode,
       });
       return res.status(200).json({ message: "data entered", user });
     } catch (error) {
@@ -59,7 +59,7 @@ module.exports = {
       });
       const payload = await helper.validationJoi(req.body, schema);
       const emailexist = await Models.userModel.findOne({
-        where: { email: payload.email },
+        where: { email: payload.email ,isDeleted:1},
       });
       if (!emailexist) {
         return res.status(404).json({ message: "!not found" });
@@ -95,7 +95,7 @@ module.exports = {
  {
   try{
    const{countryCode,phoneNumber}=req.body;
-   const userexist= await Models.userModel.findOne({where:{phoneNumber:req.body.phoneNumber}});
+   const userexist= await Models.userModel.findOne({where:{phoneNumber:req.body.phoneNumber,isDeleted:0}});
    const phone= req.body.countryCode+req.body.phoneNumber;
    if(userexist)
    {
@@ -124,7 +124,7 @@ module.exports = {
      {
       res.status(400).json({message:"please provide otp"});
      }
-     const whereCondition={countryCode,phoneNumber};
+     const whereCondition={countryCode,phoneNumber,isDeleted:0,};
     const user= await Models.userModel.findOne({where:whereCondition});
     if(!user)
     {
@@ -160,7 +160,7 @@ module.exports = {
   {
     try{
       const{countryCode,phoneNumber}=req.body;
-      const userexist= await Models.userModel.findOne({phoneNumber:req.body.phoneNumber});
+      const userexist= await Models.userModel.findOne({phoneNumber:req.body.phoneNumber,isDeleted:0});
       const phone= req.body.countryCode+req.body.phoneNumber;
       if(userexist)
       {

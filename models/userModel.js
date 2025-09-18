@@ -1,5 +1,4 @@
 
-
 module.exports=(Sequelize,sequelize,DataTypes) =>
 {
     return sequelize.define(
@@ -34,11 +33,11 @@ module.exports=(Sequelize,sequelize,DataTypes) =>
             type:DataTypes.STRING(255),
             allowNull:true,
          },
-        // otpVerify: {
-        //     type:DataTypes.INTEGER,
-        //         allowNull:true,
-        //         defaultValue:0, // 0 not verified 1 verified
-        // },
+        otpVerify: {
+            type:DataTypes.INTEGER,
+                allowNull:true,
+                defaultValue:0, // 0 not verified 1 verified
+        },
         otpVerified:{
             type:DataTypes.INTEGER,
             allowNull:true,
@@ -48,7 +47,12 @@ module.exports=(Sequelize,sequelize,DataTypes) =>
             type:DataTypes.STRING,
             allowNull:true,
             defaultValue:null,
-         }
+         },
+         isDeleted:{
+            type:DataTypes.INTEGER,
+            allowNull:true,
+            defaultValue:0,
+         },
         },
         {
           tableName:"usertable",

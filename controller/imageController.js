@@ -4,13 +4,14 @@ const helper = require("../helper/validation");
 const commonhelper = require("../helper/commonHelper");
 
 module.exports = {
-  imageUpload: async (req, res) => {
+  profilePicture: async (req, res) => {
     try {
+       console.log(">>>>>",req.files);
       const schema = Joi.object({
         userId: Joi.string().required(),
       });
       const payload = await helper.validationJoi(req.body, schema);
-      const file = req.files.file;
+      let file = req.files?.profilePicture;
 
       if (!file) {
         return res.status(404).json({ message: "not found!" });

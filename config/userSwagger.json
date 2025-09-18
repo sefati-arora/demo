@@ -1,0 +1,300 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "project name",
+        "description": "project description",
+        "version": "1.0"
+    },
+    "produces": ["application/json"],
+    "basePath": "/",
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "authorization",
+            "in": "header"
+        }
+    },
+    "paths": {
+        "/api/signUp": {
+            "post": {
+                "x-swagger-router-controller": "middleware-name1",
+                "operationId": "api-signUp-post",
+                "tags": ["Application User"],
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "firstName",
+                        "in": "formData",
+                        "description": "Enter the firstName",
+                        "required": true,
+                        "type": "string",
+                        "value": "test"
+                    },
+                    {
+                        "name": "lastName",
+                        "in": "formData",
+                        "description": "Enter lastName ",
+                        "required": true,
+                        "type": "string",
+                        "value": "test"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "Enter the email",
+                        "required": true,
+                        "type": "string",
+                        "value": "test@gmail.com"
+                    },
+                    {
+                        "name": "phoneNumber",
+                        "in": "formData",
+                        "description": "Enter phone number",
+                        "required": true,
+                        "type": "string",
+                        "value": "+911010101010"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "Enter password",
+                        "required": true,
+                        "type": "string",
+                        "value": "123456"
+                    },
+                    {
+                        "name": "profilePicture",
+                        "in": "formData",
+                        "description": "Profile picture to upload",
+                        "required": false,
+                        "type": "file",
+                        "format": "binary",
+                        "maxLength": 5242880,
+                        "allowedMimeTypes": [
+                          "image/jpeg",
+                          "image/png"
+                        ]
+                    },
+                    {
+                        "name": "bio",
+                        "in": "formData",
+                        "description": "Enter bio",
+                        "required": false,
+                        "type": "string",
+                        "value": ""
+                    },
+                    {
+                        "name": "deviceToken",
+                        "in": "formData",
+                        "description": "Enter deviceToken",
+                        "required": false,
+                        "type": "string",
+                        "value": ""
+                    },
+                    {
+                        "name": "deviceType",
+                        "in": "formData",
+                        "description": "Enter deviceType",
+                        "enum": [1,2],
+                        "required": false,
+                        "type": "number",
+                        "value": "1"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        
+        "/api/login": {
+            "post": {
+                "x-swagger-router-controller": "middleware-name1",
+                "operationId": "api-login-post",
+                "tags": ["Application User"],
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "Enter the email",
+                        "required": true,
+                        "type": "string",
+                        "value": "test@gmail.com"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "Enter password",
+                        "required": true,
+                        "type": "string",
+                        "value": "123456"
+                    },
+                    {
+                        "name": "deviceToken",
+                        "in": "formData",
+                        "description": "Enter deviceToken",
+                        "required": false,
+                        "type": "string",
+                        "value": ""
+                    },
+                    {
+                        "name": "deviceType",
+                        "in": "formData",
+                        "description": "Enter deviceType",
+                        "enum": [1,2],
+                        "required": false,
+                        "type": "number",
+                        "value": "1"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+
+          "/api/logout": {
+            "post": {
+                "x-swagger-router-controller": "middleware-name1",
+                "operationId": "api-logout-post",
+                "tags": ["Application User"],
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "Enter the email",
+                        "required": true,
+                        "type": "string",
+                        "value": "test@gmail.com"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "Enter password",
+                        "required": true,
+                        "type": "string",
+                        "value": "123456"
+                    },
+                    {
+                        "name": "vio",
+                        "in": "formData",
+                        "description": "Enter vio",
+                        "required": true,
+                        "type": "string",
+                        "value": "123456"
+                    },
+                    {
+                        "name": "deviceToken",
+                        "in": "formData",
+                        "description": "Enter deviceToken",
+                        "required": false,
+                        "type": "string",
+                        "value": ""
+                    }
+                   
+                ],
+                "responses": {}
+            }
+        },
+    "/api/optsend": {
+            "post": {
+                "x-swagger-router-controller": "middleware-name1",
+                "operationId": "api-optsend-post",
+                "tags": ["Application User"],
+                "description": "",
+                "parameters": [
+                    {
+                         
+                        "name": "phoneNumber",
+                        "in": "formData",
+                        "description": "Enter phoneNumber",
+                        "required": true,
+                        "type": "string",
+                        "value": "..."
+                    },
+                     {
+                        "name":"countryCode",
+                        "in":"formData",
+                        "description":"CountryCode",
+                        "required":true,
+                        "type":"string",
+                        "value":"..."
+                     }
+                      ],
+                    
+                "responses": {}
+            }
+        },
+         "/api/otpVerify": {
+            "post": {
+                "x-swagger-router-controller": "middleware-name1",
+                "operationId": "api-otpVerify-post",
+                "tags": ["Application User"],
+                "description": "",
+                "parameters": [
+                    {
+                         
+                        "name": "phoneNumber",
+                        "in": "formData",
+                        "description": "Enter phoneNumber",
+                        "required": true,
+                        "type": "string",
+                        "value": "..."
+                    },
+                     {
+                        "name":"countryCode",
+                        "in":"formData",
+                        "description":"CountryCode",
+                        "required":true,
+                        "type":"string",
+                        "value":"..."
+                     },
+                     {
+                        "name":"otp",
+                        "in":"formData",
+                        "Description":"otp verified",
+                        "required":true,
+                        "type":"string",
+                        "value":".."
+                     }
+                     
+                     
+                      ],
+                    
+                "responses": {}
+            }
+        },
+        "/api/resendOtp": {
+            "post": {
+                "x-swagger-router-controller": "middleware-name1",
+                "operationId": "api-resendOtp-post",
+                "tags": ["Application User"],
+                "description": "",
+                "parameters": [
+                    {
+                         
+                        "name": "phoneNumber",
+                        "in": "formData",
+                        "description": "Enter phoneNumber",
+                        "required": true,
+                        "type": "string",
+                        "value": "..."
+                    },
+                     {
+                        "name":"countryCode",
+                        "in":"formData",
+                        "description":"CountryCode",
+                        "required":true,
+                        "type":"string",
+                        "value":"..."
+                     }
+                      ],
+                    
+                "responses": {}
+            }
+        },
+    "definitions": {
+    }
+}
+}
+      
+     
+

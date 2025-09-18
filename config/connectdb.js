@@ -6,7 +6,7 @@ const sequelize = new Sequelize("demo", "root", "password", {
 const connectdb = async () => {
   try {
     await sequelize.authenticate().then(async () => {
-      await sequelize.sync({ alter: true });
+      await sequelize.sync({ alter: false });
       console.log("db connected ans sync ");
     });
   } catch (error) {

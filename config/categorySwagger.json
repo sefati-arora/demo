@@ -1,0 +1,56 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "project name",
+        "description": "project description",
+        "version": "1.0"
+    },
+    "produces": ["application/json"],
+    "basePath": "/",
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "authorization",
+            "in": "header"
+        }
+    },
+     "paths": {
+          "/api/category": {
+            "post": {
+                "x-swagger-router-controller": "middleware-name1",
+                "operationId": "api-category-post",
+                "tags": ["Application User"],
+                "description": "",
+                "parameters": [
+                      {
+                        "name": "title",
+                        "in": "formData",
+                        "description": "Enter the product related title",
+                        "required": true,
+                        "type": "string",
+                        "value": "test"
+                    },
+                    {
+                      "name": "Productprice",
+                        "in": "formData",
+                        "description": "Enter the product related Productprice",
+                        "required": true,
+                        "type": "string",
+                        "value": "test"
+                    },
+                    {
+                         "name": "productBio",
+                        "in": "formData",
+                        "description": "Enter the product related productBio",
+                        "required": true,
+                        "type": "string",
+                        "value": "test"
+                    }
+                      ],
+                "responses": {}
+            }
+        }
+         },
+    "definitions": {
+    }
+}

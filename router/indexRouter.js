@@ -5,7 +5,7 @@ const commonHelper = require("../helper/commonHelper");
 router.get("/", (req, res) => {
   res.render("index", { title: "Express" });
 });
-// router.get("/api", async (req, res) => {
+// router.get("/user", async (req, res) => {
 //   let jsonData = require("../config/productSwagger.json");
 //   delete jsonData.host;
 //   jsonData.host = await commonHelper.getHost(req, res); // Dynamically set the host
@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
 //   return res.status(200).send(jsonData);
 // });
 router.get("/api", async (req, res) => {
-  let jsonData = require("../config/userSwagger.json");
+  let jsonData = require("../config/subCategorySwagger.json");
   delete jsonData.host;
   jsonData.host = await commonHelper.getHost(req, res); // Dynamically set the host
   console.log("jsonData.host:  ", jsonData.host);

@@ -37,7 +37,7 @@ const apiRouter = require("./router/userRouter");
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(null, swaggerOptions));
   app.use("/", indexRouter);
 
-app.use("/api",apiRouters);
+app.use("/user",apiRouters);
 
 app.use("/api", apiRouter);
 

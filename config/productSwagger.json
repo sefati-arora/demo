@@ -15,10 +15,10 @@
         }
     },
     "paths": {
-        "/api/productdetail": {
+        "/user/productdetail": {
             "post": {
                 "x-swagger-router-controller": "middleware-name1",
-                "operationId": "api-productdetail-post",
+                "operationId": "user-productdetail-post",
                 "tags": ["Application User"],
                 "description": "",
                 "parameters": [

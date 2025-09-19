@@ -3,6 +3,8 @@ const apiController=require('../controller/apiController');
 const imageController=require('../controller/imageController');
 const otpVerify=require('../controller/otpverify');
 const otpverified=require('../controller/demootp');
+const categoryapiController=require('../controller/categoryapiController');
+const subCategoryapi=require('../controller/subCategoryapi');
 const{authentication} = require('../middleware/authentication');
 const router=express.Router();
 
@@ -15,5 +17,8 @@ router.post('/otpVerify',apiController.otpVerify);
 router.post('/resendOtp',apiController.resendOtp);
 router.post('/emailotp',otpVerify.emailotp);
 router.post('/emailotpVerify',otpVerify.emailotpVerify);
-router.post('/otpVerified',otpverified.otpVerified)
+router.post('/otpVerified',otpverified.otpVerified);
+router.post('/category', categoryapiController.category);
+router.post('/subCategory',subCategoryapi.subCategory);
+router.post('/getSubcategory',subCategoryapi.getSubcategory);
 module.exports=router;
